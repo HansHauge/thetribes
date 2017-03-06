@@ -1,0 +1,92 @@
+<%= form_for(geographic_area) do |f| %>
+  <% if geographic_area.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(geographic_area.errors.count, "error") %> prohibited this geographic_area from being saved:</h2>
+
+      <ul>
+      <% geographic_area.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :summary %>
+    <%= f.text_area :summary %>
+  </div>
+
+  <div class="field">
+    <%= f.label :flora %>
+    <%= f.text_area :flora %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fauna %>
+    <%= f.text_area :fauna %>
+  </div>
+
+  <div class="field">
+    <%= f.label :civilizations %>
+    <%= f.text_area :civilizations %>
+  </div>
+
+  <div class="field">
+    <%= f.label :ruins %>
+    <%= f.text_area :ruins %>
+  </div>
+
+  <div class="field">
+    <%= f.label :landscape %>
+    <%= f.text_area :landscape %>
+  </div>
+
+  <div class="field">
+    <%= f.label :geography %>
+    <%= f.text_area :geography %>
+  </div>
+
+  <div class="field">
+    <%= f.label :territory_control %>
+    <%= f.text_area :territory_control %>
+  </div>
+
+  <div class="field">
+    <%= f.label :history %>
+    <%= f.text_area :history %>
+  </div>
+
+  <div class="field">
+    <%= f.label :lore %>
+    <%= f.text_area :lore %>
+  </div>
+
+  <div class="field">
+    <%= f.label :archeology %>
+    <%= f.text_area :archeology %>
+  </div>
+
+  <div class="field">
+    <%= f.label :recommended_experience %>
+    <%= f.text_area :recommended_experience %>
+  </div>
+
+  <div class="field">
+    <%= f.label :size %>
+    <%= f.text_area :size %>
+  </div>
+
+  <div class="field">
+    <%= f.label :points_of_interest %>
+    <%= f.text_area :points_of_interest %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

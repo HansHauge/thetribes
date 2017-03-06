@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  summary: MyText
+  flora: MyText
+  fauna: MyText
+  civilizations: MyText
+  ruins: MyText
+  landscape: MyText
+  geography: MyText
+  territory_control: MyText
+  history: MyText
+  lore: MyText
+  archeology: MyText
+  recommended_experience: MyText
+  size: MyText
+  points_of_interest: MyText
+
+two:
+  name: MyString
+  summary: MyText
+  flora: MyText
+  fauna: MyText
+  civilizations: MyText
+  ruins: MyText
+  landscape: MyText
+  geography: MyText
+  territory_control: MyText
+  history: MyText
+  lore: MyText
+  archeology: MyText
+  recommended_experience: MyText
+  size: MyText
+  points_of_interest: MyText
