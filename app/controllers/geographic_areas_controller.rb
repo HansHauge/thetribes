@@ -4,7 +4,6 @@ class GeographicAreasController < ApplicationController
   # GET /geographic_areas
   # GET /geographic_areas.json
   def index
-    # binding.pry
     @geographic_areas = GeographicArea.all
   end
 
