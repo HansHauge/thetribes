@@ -53,6 +53,10 @@ RSpec.describe GeographicAreasController, type: :controller do
   end
 
   describe "GET #new" do
+    before(:each) do
+      sign_in_and_get_mappings
+    end
+
     it "assigns a new geographic_area as @geographic_area" do
       get :new, params: {}, session: valid_session
       expect(assigns(:geographic_area)).to be_a_new(GeographicArea)
