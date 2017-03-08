@@ -6,21 +6,6 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Summary</th>
-      <th>Flora</th>
-      <th>Fauna</th>
-      <th>Civilizations</th>
-      <th>Ruins</th>
-      <th>Landscape</th>
-      <th>Geography</th>
-      <th>Territory control</th>
-      <th>History</th>
-      <th>Lore</th>
-      <th>Archeology</th>
-      <th>Recommended experience</th>
-      <th>Size</th>
-      <th>Points of interest</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -28,20 +13,6 @@
     <% @geographic_areas.each do |geographic_area| %>
       <tr>
         <td><%= geographic_area.name %></td>
-        <td><%= geographic_area.summary %></td>
-        <td><%= geographic_area.flora %></td>
-        <td><%= geographic_area.fauna %></td>
-        <td><%= geographic_area.civilizations %></td>
-        <td><%= geographic_area.ruins %></td>
-        <td><%= geographic_area.landscape %></td>
-        <td><%= geographic_area.geography %></td>
-        <td><%= geographic_area.territory_control %></td>
-        <td><%= geographic_area.history %></td>
-        <td><%= geographic_area.lore %></td>
-        <td><%= geographic_area.archeology %></td>
-        <td><%= geographic_area.recommended_experience %></td>
-        <td><%= geographic_area.size %></td>
-        <td><%= geographic_area.points_of_interest %></td>
         <td><%= link_to 'Show', geographic_area %></td>
         <td><%= link_to 'Edit', edit_geographic_area_path(geographic_area) %></td>
         <td><%= link_to 'Destroy', geographic_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
