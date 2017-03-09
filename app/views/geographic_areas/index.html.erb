@@ -12,10 +12,13 @@
   <tbody>
     <% @geographic_areas.each do |geographic_area| %>
       <tr>
-        <td><%= geographic_area.name %></td>
-        <td><%= link_to 'Show', geographic_area %></td>
-        <td><%= link_to 'Edit', edit_geographic_area_path(geographic_area) %></td>
-        <td><%= link_to 'Destroy', geographic_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= link_to geographic_area.name, geographic_area %>
+        </td>
+        <% if current_user.game_master? %>
+          <td><%= link_to 'Edit', edit_geographic_area_path(geographic_area) %></td>
+          <td><%= link_to 'Destroy', geographic_area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +26,6 @@
 
 <br>
 
-<%= link_to 'New Geographic Area', new_geographic_area_path %>
+<% if current_user.game_master? %>
+  <%= link_to 'New Geographic Area', new_geographic_area_path %>
+<% end %>

@@ -41,6 +41,7 @@ RSpec.describe "geographic_areas/index", type: :view do
   end
 
   it "renders a list of geographic_areas" do
+    sign_in_and_get_mappings
     render
     assert_select "tr>td", :text => "Name".to_s, :count => 2
     # we're not showing these because it makes the page too cluttered
