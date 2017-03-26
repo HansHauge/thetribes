@@ -63,3 +63,8 @@ def sign_in_and_get_mappings
   @request.env["devise.mapping"] = Devise.mappings[:user]
   sign_in FactoryGirl.create(:user)
 end
+
+def sign_in_and_get_mappings_for_gm
+  @request.env["devise.mapping"] = Devise.mappings[:user]
+  sign_in FactoryGirl.create(:gm_user)
+end

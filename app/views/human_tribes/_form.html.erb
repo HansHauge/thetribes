@@ -1,0 +1,86 @@
+<%= form_for(human_tribe) do |f| %>
+  <% if human_tribe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(human_tribe.errors.count, "error") %> prohibited this human_tribe from being saved:</h2>
+
+      <ul>
+      <% human_tribe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :abilities %>
+    <%= f.text_area :abilities %>
+  </div>
+
+  <div class="field">
+    <%= f.label :history_and_culture %>
+    <%= f.text_area :history_and_culture %>
+  </div>
+
+  <div class="field">
+    <% if @geographic_areas.present? %>
+      Existing Geographic Areas <br>
+      ------<br>
+      <% @geographic_areas.each do |geo| %>
+        <%= "Name: #{geo.name}(id:#{geo.id})" %>
+        <br>
+      <% end %>
+      ------
+    <% else %>
+      <br>
+      Oh snap, there are no geographic areas... we had better
+      <%= link_to 'create one first.', geographic_areas_url %>
+      <br><br>
+    <% end %>
+    <%= f.label :geographic_area_id %> (put the geographic area id in the box below)<br>
+    <%= f.text_field :geographic_area_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :skills_and_professions %>
+    <%= f.text_area :skills_and_professions %>
+  </div>
+
+  <div class="field">
+    <%= f.label :appearance %>
+    <%= f.text_area :appearance %>
+  </div>
+
+  <div class="field">
+    <%= f.label :alliances %>
+    <%= f.text_area :alliances %>
+  </div>
+
+  <div class="field">
+    <%= f.label :enemies %>
+    <%= f.text_area :enemies %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trade_and_commerce %>
+    <%= f.text_area :trade_and_commerce %>
+  </div>
+
+  <div class="field">
+    <%= f.label :political_structure %>
+    <%= f.text_area :political_structure %>
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %>
+    <%= f.text_area :notes %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

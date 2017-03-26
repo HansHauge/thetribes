@@ -1,5 +1,6 @@
 class GeographicAreasController < ApplicationController
   before_action :set_geographic_area, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_to_index, only: [:edit, :update, :destroy, :new]
 
   # GET /geographic_areas
   # GET /geographic_areas.json
@@ -62,6 +63,12 @@ class GeographicAreasController < ApplicationController
   end
 
   private
+    def redirect_to_index
+      unless current_user.game_master?
+        redirect_to geographic_areas_url
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_geographic_area
       @geographic_area = GeographicArea.find(params[:id])

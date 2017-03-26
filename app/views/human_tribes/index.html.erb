@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Human Tribes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @human_tribes.each do |human_tribe| %>
+      <tr>
+        <td>
+          <%= link_to human_tribe.name, human_tribe %>
+        </td>
+        <% if current_user.game_master? %>
+          <td>
+            <%= link_to 'Edit', edit_human_tribe_path(human_tribe) %>
+          </td>
+          <td>
+            <%= link_to 'Destroy', human_tribe, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% if current_user.game_master? %>
+  <%= link_to 'New Human Tribe', new_human_tribe_path %>
+<% end %>
