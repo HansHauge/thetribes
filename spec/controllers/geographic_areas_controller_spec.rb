@@ -54,7 +54,7 @@ RSpec.describe GeographicAreasController, type: :controller do
 
   describe "GET #new" do
     before(:each) do
-      sign_in_and_get_mappings
+      sign_in_and_get_mappings_for_gm
     end
 
     it "assigns a new geographic_area as @geographic_area" do

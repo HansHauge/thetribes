@@ -9,5 +9,8 @@
   <% end %>
 <% end %>
 
-<%= link_to 'Edit', edit_geographic_area_path(@geographic_area) %> |
+<% if current_user.game_master? %>
+  <%= link_to 'Edit', edit_geographic_area_path(@geographic_area) %> |
+<% end %>
+
 <%= link_to 'Back', geographic_areas_path %>

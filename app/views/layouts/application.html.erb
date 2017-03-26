@@ -10,10 +10,18 @@
 
   <body>
 
+    <ul class='main-navigation'>
+      <li>Main Navigation: </li>
+      <li><%= link_to 'Geographic Areas', geographic_areas_url %></li> |
+      <li><%= link_to 'Human Tribes', human_tribes_url %></li>
+    </ul>
+
     <%= yield %>
 
     <p>
-      <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      <% if user_signed_in? %>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+      <% end %>
     </p>
 
   </body>

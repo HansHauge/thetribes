@@ -1,8 +1,8 @@
-// Place all the styles related to the GeographicAreas controller here.
+// Place all the styles related to the HumanTribes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-form.new_geographic_area, form.edit_geographic_area {
+form.new_human_tribe, form.edit_human_tribe {
   input[type=text] {
     width: 300px;
   }
@@ -10,11 +10,5 @@ form.new_geographic_area, form.edit_geographic_area {
   textarea {
     width: 500px;
     height: 100px;
-  }
-}
-
-ul.main-navigation {
-  li {
-    display: inline;
   }
 }

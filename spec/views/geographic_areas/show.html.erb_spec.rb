@@ -20,6 +20,8 @@ RSpec.describe "geographic_areas/show", type: :view do
         :size => "Size",
         :points_of_interest => "Points of Interest"
       ))
+
+      sign_in_and_get_mappings_for_gm
     end
 
     it "renders attributes in <p>" do
@@ -47,6 +49,8 @@ RSpec.describe "geographic_areas/show", type: :view do
       @geographic_area = assign(:geographic_area, GeographicArea.create!(
         :name => "Name"
       ))
+
+      sign_in_and_get_mappings_for_gm
     end
 
     it 'only shows the values that are present' do

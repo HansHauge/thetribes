@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309180401) do
+ActiveRecord::Schema.define(version: 20170326183212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,23 @@ ActiveRecord::Schema.define(version: 20170309180401) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "human_tribes", force: :cascade do |t|
+    t.string   "name"
+    t.text     "abilities"
+    t.text     "history_and_culture"
+    t.integer  "geographic_area_id"
+    t.text     "skills_and_professions"
+    t.text     "appearance"
+    t.text     "alliances"
+    t.text     "enemies"
+    t.text     "trade_and_commerce"
+    t.text     "political_structure"
+    t.text     "notes"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.index ["geographic_area_id"], name: "index_human_tribes_on_geographic_area_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -53,4 +70,5 @@ ActiveRecord::Schema.define(version: 20170309180401) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "human_tribes", "geographic_areas"
 end
