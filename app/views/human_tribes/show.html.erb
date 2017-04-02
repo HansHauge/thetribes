@@ -1,59 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @human_tribe.name %>
-</p>
-
-<p>
-  <strong>Abilities:</strong>
-  <%= @human_tribe.abilities %>
-</p>
-
-<p>
-  <strong>History and culture:</strong>
-  <%= @human_tribe.history_and_culture %>
-</p>
-
-<p>
-  <strong>Geographic areas:</strong>
-  <%= @human_tribe.geographic_area.name %>
-</p>
-
-<p>
-  <strong>Skills and professions:</strong>
-  <%= @human_tribe.skills_and_professions %>
-</p>
-
-<p>
-  <strong>Appearance:</strong>
-  <%= @human_tribe.appearance %>
-</p>
-
-<p>
-  <strong>Alliances:</strong>
-  <%= @human_tribe.alliances %>
-</p>
-
-<p>
-  <strong>Enemies:</strong>
-  <%= @human_tribe.enemies %>
-</p>
-
-<p>
-  <strong>Trade and commerce:</strong>
-  <%= @human_tribe.trade_and_commerce %>
-</p>
-
-<p>
-  <strong>Political structure:</strong>
-  <%= @human_tribe.political_structure %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @human_tribe.notes %>
-</p>
+<% @human_tribe.attributes.each do |k,v| %>
+  <% if v.present? && !['id', 'created_at', 'updated_at', 'geographic_area_id'].include?(k) %>
+    <p>
+      <strong><%= "#{k.upcase}: " %></strong>
+      <%= v %>
+    </p>
+  <% end %>
+  <% if k.eql?('geographic_area_id') %>
+    <p>
+      <strong>GEOGRAPHIC AREA: </strong>
+      <%= @human_tribe.geographic_area.name.capitalize %>
+    </p>
+  <% end %>
+<% end %>
 
 <% if current_user.game_master? %>
   <%= link_to 'Edit', edit_human_tribe_path(@human_tribe) %> |
