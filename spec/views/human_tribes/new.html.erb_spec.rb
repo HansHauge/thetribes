@@ -1,8 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe "human_tribes/new", type: :view do
-  before(:each) do
-    geographic_area = assign(:geographic_area, GeographicArea.create!(
+  # before!(:each) do
+
+  # end
+
+  it "renders new human_tribe form" do
+    sign_in_and_get_mappings_for_gm
+
+    geographic_area = GeographicArea.create!(
       :name => "MyString",
       :summary => "MyText",
       :flora => "MyText",
@@ -18,7 +24,7 @@ RSpec.describe "human_tribes/new", type: :view do
       :recommended_experience => "MyText",
       :size => "MyText",
       :points_of_interest => "MyText"
-    ))
+    )
 
     assign(:human_tribe, HumanTribe.new(
       :name => "MyString",
@@ -33,9 +39,7 @@ RSpec.describe "human_tribes/new", type: :view do
       :political_structure => "MyText",
       :notes => "MyText"
     ))
-  end
 
-  it "renders new human_tribe form" do
     render
 
     assert_select "form[action=?][method=?]", human_tribes_path, "post" do
@@ -46,7 +50,7 @@ RSpec.describe "human_tribes/new", type: :view do
 
       assert_select "textarea#human_tribe_history_and_culture[name=?]", "human_tribe[history_and_culture]"
 
-      assert_select "input#human_tribe_geographic_area_id[name=?]", "human_tribe[geographic_area_id]"
+      # assert_select "input#human_tribe_geographic_area_id[name=?]", "human_tribe[geographic_area_id]"
 
       assert_select "textarea#human_tribe_skills_and_professions[name=?]", "human_tribe[skills_and_professions]"
 
