@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "human_tribes/edit", type: :view do
   before(:each) do
+    sign_in_and_get_mappings_for_gm
+
     geographic_area = assign(:geographic_area, GeographicArea.create!(
       :name => "MyString",
       :summary => "MyText",
@@ -33,8 +35,6 @@ RSpec.describe "human_tribes/edit", type: :view do
       :political_structure => "MyText",
       :notes => "MyText"
     ))
-
-    sign_in_and_get_mappings_for_gm
   end
 
   it "renders the edit human_tribe form" do
@@ -48,7 +48,12 @@ RSpec.describe "human_tribes/edit", type: :view do
 
       assert_select "textarea#human_tribe_history_and_culture[name=?]", "human_tribe[history_and_culture]"
 
-      assert_select "input#human_tribe_geographic_area_id[name=?]", "human_tribe[geographic_area_id]"
+      # assert_select "select" do |elements|
+      #   elements.each do |element|
+      #     assert_select element, "option", 1
+      #   end
+      # end
+      # assert_select "select#human_tribe_geographic_area_id[name=?]", "human_tribe[geographic_area_id]"
 
       assert_select "textarea#human_tribe_skills_and_professions[name=?]", "human_tribe[skills_and_professions]"
 

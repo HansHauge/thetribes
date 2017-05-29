@@ -28,21 +28,18 @@
 
   <div class="field">
     <% if @geographic_areas.present? %>
-      Existing Geographic Areas <br>
-      ------<br>
-      <% @geographic_areas.each do |geo| %>
-        <%= "Name: #{geo.name}(id:#{geo.id})" %>
-        <br>
+      <%= f.label :geographic_area %><br>
+      <%= f.select :geographic_area_id do %>
+        <% @geographic_areas.each do |geo| %>
+          <option value="<%= geo.id %>"><%= geo.name %></option>
+        <% end %>
       <% end %>
-      ------
     <% else %>
       <br>
       Oh snap, there are no geographic areas... we had better
       <%= link_to 'create one first.', geographic_areas_url %>
       <br><br>
     <% end %>
-    <%= f.label :geographic_area_id %> (put the geographic area id in the box below)<br>
-    <%= f.text_field :geographic_area_id %>
   </div>
 
   <div class="field">

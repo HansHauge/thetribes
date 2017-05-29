@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @creature_type.name %>
+</p>
+
+<% if current_user.game_master? %>
+  <%= link_to 'Edit', edit_creature_type_path(@creature_type) %> |
+<% end %>
+<%= link_to 'Back', creature_types_path %>
